@@ -86,3 +86,26 @@ else()
 target_link_libraries(sick_generic_caller ${Boost_LIBRARIES} pthread)
 endif()
 
+add_library(sick_scan_lib
+	driver/src/dataDumper.cpp
+	driver/src/sick_scan_common.cpp
+	driver/src/abstract_parser.cpp
+	driver/src/tcp/tcp.cpp
+	driver/src/tcp/Mutex.cpp
+	driver/src/tcp/SickThread.cpp
+	driver/src/tcp/errorhandler.cpp
+	driver/src/tcp/toolbox.cpp
+	driver/src/tcp/Time.cpp
+	driver/src/tcp/colaa.cpp
+	driver/src/tcp/colab.cpp
+	driver/src/binScanf.cpp
+	driver/src/sick_scan_common_tcp.cpp
+	driver/src/sick_generic_radar.cpp
+	driver/src/sick_generic_imu.cpp
+	driver/src/sick_generic_parser.cpp
+	driver/src/sick_scan_common_nw.cpp
+	driver/src/sick_scan_config_internal.cpp
+	driver/src/softwarePLL.cpp
+	)
+
+target_link_libraries(sick_scan_lib ${Boost_LIBRARIES} pthread)
